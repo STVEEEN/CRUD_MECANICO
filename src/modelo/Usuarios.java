@@ -4,6 +4,12 @@
  */
 package modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.UUID;
+
 /**
  *
  * @author Estudiante
@@ -63,6 +69,56 @@ public class Usuarios {
 
     public void setEdad(String edad) {
         this.edad = edad;
+    }
+    
+    //3-Metodos
+       public void GuardarUsuario() {
+        //Creamos una variable igual a ejecutar el método de la clase de conexión
+        Connection conexion = ClaseConexion.getConexion();
+        try {
+            //Creamos el PreparedStatement que ejecutará la Query
+            PreparedStatement AddUsuario = conexion.prepareStatement("INSERT INTO tbUsuario(UUID_Usuario, nombre, apellido, Correo, contraseña, edad) VALUES (?, ?, ?, ?, ?, ?)");
+            //Establecer valores de la consulta SQL
+            AddUsuario.setString(1, UUID.randomUUID().toString());
+            AddUsuario.setString(2, getNombre());
+            AddUsuario.setString(3, getApellido());
+            AddUsuario.setString(4, getCorreo());
+            AddUsuario.setString(5, getContraseña());
+            AddUsuario.setString(6, getEdad());
+ 
+            //Ejecutar la consulta
+            AddUsuario.executeUpdate();
+ 
+        } catch (SQLException ex) {
+            System.out.println("este es el error en el modelo:metodo guardar " + ex);
+        }
+    }
+       
+       public boolean iniciarSesion() {
+        //Obtenemos la conexión a la base de datos
+        Connection conexion = ClaseConexion.getConexion();
+        boolean resultado = false;
+
+        try {
+            //Preparamos la consulta SQL para verificar el usuario
+            String sql = "SELECT * FROM tbUsuario WHERE correo = ? AND contraseña = ?";
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, getCorreo());
+            statement.setString(2, getContraseña());
+
+            //Ejecutamos la consulta
+            ResultSet resultSet = statement.executeQuery();
+
+            //Si hay un resultado, significa que el usuario existe y la contraseña es correcta
+            if (resultSet.next()) {
+                resultado = true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error en el modelo: método iniciarSesion " + ex);
+        }
+
+        return resultado;
     }
     
     

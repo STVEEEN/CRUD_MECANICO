@@ -50,7 +50,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setText("BENVENIDO A NUESTRO TALLER");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        jLabel2.setText("Correo");
+        jLabel2.setText("Correo electronico:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         jLabel3.setText("Contraseña:");
@@ -63,7 +63,7 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 370, 30));
         jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 370, 30));
 
-        jlba.setText("no tienes una cuenta?");
+        jlba.setText("¿no tienes una cuenta?");
         jPanel1.add(jlba, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 120, -1));
 
         lblRegistrate.setText("Registrate aqui");
