@@ -45,7 +45,10 @@ public class frmMecanico extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         Actualizar = new javax.swing.JButton();
         Limpiar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtEstado = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtDueño = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,10 +78,10 @@ public class frmMecanico extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
 
         jLabel3.setText("Marca del vehiculo:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         jLabel4.setText("Modelo del vehiculo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jLabel5.setText("Problema presentado:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
@@ -91,20 +94,20 @@ public class frmMecanico extends javax.swing.JFrame {
                 txtMarca_vehiculoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtMarca_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 330, -1));
+        jPanel1.add(txtMarca_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 330, -1));
 
         txtModelo_vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModelo_vehiculoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtModelo_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 330, -1));
+        jPanel1.add(txtModelo_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 330, -1));
         jPanel1.add(txtProblema_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 330, -1));
         jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 290, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("Ingresa los datos del vehiculo:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jLabel8.setText("Buscar:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
@@ -135,9 +138,14 @@ public class frmMecanico extends javax.swing.JFrame {
 
         Limpiar.setText("Limpiar");
         jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 130, 40));
+        jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 240, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, -1, -1));
+        jLabel9.setText("Dueño del vehiculo:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        jPanel1.add(txtDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 330, -1));
+
+        jLabel10.setText("telefono del dueño:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,8 +223,8 @@ public class frmMecanico extends javax.swing.JFrame {
     public javax.swing.JButton Limpiar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -224,10 +232,13 @@ public class frmMecanico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel9;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jtbMenu;
     public javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtDueño;
+    public javax.swing.JTextField txtEstado;
     public javax.swing.JTextField txtMarca_vehiculo;
     public javax.swing.JTextField txtModelo_vehiculo;
     public javax.swing.JTextField txtProblema_vehiculo;
