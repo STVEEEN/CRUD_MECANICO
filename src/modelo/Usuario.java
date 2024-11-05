@@ -94,6 +94,8 @@ public class Usuario {
         } catch (SQLException ex) {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }
+        
+        
     }
        
        public boolean iniciarSesion() {

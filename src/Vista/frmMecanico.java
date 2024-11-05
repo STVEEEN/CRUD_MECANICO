@@ -26,6 +26,7 @@ public class frmMecanico extends javax.swing.JFrame {
      */
     public frmMecanico() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -61,6 +62,7 @@ public class frmMecanico extends javax.swing.JFrame {
         txtDueño = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtTelefono_cliente = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +74,7 @@ public class frmMecanico extends javax.swing.JFrame {
         jLabel1.setText("TALLER DE MECANICO");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
+        jtbMenu.setBackground(new java.awt.Color(235, 235, 250));
         jtbMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -108,6 +111,7 @@ public class frmMecanico extends javax.swing.JFrame {
         jLabel6.setText("Estado del problema:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, -1));
 
+        txtMarca_vehiculo.setBackground(new java.awt.Color(235, 235, 250));
         txtMarca_vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMarca_vehiculoActionPerformed(evt);
@@ -115,13 +119,18 @@ public class frmMecanico extends javax.swing.JFrame {
         });
         jPanel1.add(txtMarca_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 330, -1));
 
+        txtModelo_vehiculo.setBackground(new java.awt.Color(235, 235, 250));
         txtModelo_vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModelo_vehiculoActionPerformed(evt);
             }
         });
         jPanel1.add(txtModelo_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 330, -1));
+
+        txtProblema_vehiculo.setBackground(new java.awt.Color(235, 235, 250));
         jPanel1.add(txtProblema_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 330, -1));
+
+        txtBuscar.setBackground(new java.awt.Color(235, 235, 250));
         jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 310, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -168,17 +177,24 @@ public class frmMecanico extends javax.swing.JFrame {
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setText("Limpiar");
         jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 130, 40));
+
+        txtEstado_problema.setBackground(new java.awt.Color(235, 235, 250));
         jPanel1.add(txtEstado_problema, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 240, -1));
 
         jLabel9.setForeground(new java.awt.Color(0, 102, 204));
         jLabel9.setText("Dueño del vehiculo:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        txtDueño.setBackground(new java.awt.Color(235, 235, 250));
         jPanel1.add(txtDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 330, -1));
 
         jLabel10.setForeground(new java.awt.Color(0, 102, 204));
         jLabel10.setText("telefono del dueño:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        txtTelefono_cliente.setBackground(new java.awt.Color(235, 235, 250));
         jPanel1.add(txtTelefono_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 330, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 630, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,6 +284,7 @@ public class frmMecanico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable jtbMenu;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtDueño;

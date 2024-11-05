@@ -42,11 +42,14 @@ public class CtrlLogin implements MouseListener{
             //Si la variable es "true" significa que si existe el usuario ingresado    
             if (comprobar == true) {
                 JOptionPane.showMessageDialog(vista,"¡Bienvenido!");
+                vista.dispose();
                 frmMecanico.initfrmMecanico();
             } else {
                 JOptionPane.showMessageDialog(vista, "Usuario no encontrado");
 
-            }
+            } 
+            
+
         }
         
         //Clic al botón de Ir Al Registro

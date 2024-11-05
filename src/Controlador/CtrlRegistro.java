@@ -41,6 +41,39 @@ public class CtrlRegistro implements MouseListener{
             
             //Muestro una alerta que el usuario se ha guardado
             JOptionPane.showMessageDialog(vista, "Usuario Guardado");
+            
+                         if(e.getSource() == vista.btnRegistrarse){
+            //1-Validar campos vacios
+            if(vista.txtNombre.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vista, "Llene los campos");
+            }
+            if(vista.txtApellido.getText().isEmpty()){
+                JOptionPane.showMessageDialog(vista, "Llene los campos");
+            }
+            
+            //2-Validar correos
+            if(!vista.txtCorreo.getText().contains("@") || !vista.txtCorreo.getText().contains(".com")){
+                JOptionPane.showMessageDialog(vista, "Ingrese un correo valido");
+            }
+            
+            //3-Validar que la contraseña tenga mas de 6 caracteres
+            if(vista.txtContraseña.getText().length() < 6){
+                JOptionPane.showMessageDialog(vista, "La contraseña debe tener mas de 6 caracteres");
+            }
+            
+            //4-Validar que la edad solo ingrese numeros
+            try {
+                int edadNumerica = Integer.parseInt(vista.txtEdad.getText());
+                if(edadNumerica > 100 || edadNumerica == 0){
+                    JOptionPane.showMessageDialog(vista, "Ingrese una edad valida");
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(vista, "Ingrese solo numeros");
+            }
+            
+        }
+            
+            
         }
         
          //Clic al botón de Ir Al Login
