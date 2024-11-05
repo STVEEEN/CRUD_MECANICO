@@ -4,11 +4,22 @@
  */
 package Vista;
 
+import Controlador.CtrlMecanico;
+import modelo.Vehiculos;
+
 /**
  *
  * @author Estudiante
  */
 public class frmMecanico extends javax.swing.JFrame {
+
+    public static void initfrmMecanico() {
+        Vehiculos modelo = new Vehiculos();
+        frmMecanico vista = new frmMecanico();
+        CtrlMecanico controlador = new CtrlMecanico(modelo, vista);
+
+        vista.setVisible(true);
+    }
 
     /**
      * Creates new form frmMecanico
@@ -43,20 +54,23 @@ public class frmMecanico extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        Actualizar = new javax.swing.JButton();
-        Limpiar = new javax.swing.JButton();
-        txtEstado = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        txtEstado_problema = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtDueño = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        txtTelefono_cliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
         jLabel1.setText("TALLER DE MECANICO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jtbMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,21 +85,26 @@ public class frmMecanico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtbMenu);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 700, 310));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 720, 310));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 204));
         jLabel2.setText("Autos en nomina:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
+        jLabel3.setForeground(new java.awt.Color(0, 102, 204));
         jLabel3.setText("Marca del vehiculo:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(0, 102, 204));
         jLabel4.setText("Modelo del vehiculo");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(0, 102, 204));
         jLabel5.setText("Problema presentado:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
+        jLabel6.setForeground(new java.awt.Color(0, 102, 204));
         jLabel6.setText("Estado del problema:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, -1, -1));
 
@@ -94,58 +113,72 @@ public class frmMecanico extends javax.swing.JFrame {
                 txtMarca_vehiculoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtMarca_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 330, -1));
+        jPanel1.add(txtMarca_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 330, -1));
 
         txtModelo_vehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModelo_vehiculoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtModelo_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 330, -1));
+        jPanel1.add(txtModelo_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 330, -1));
         jPanel1.add(txtProblema_vehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 330, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 290, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 310, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 102, 204));
         jLabel7.setText("Ingresa los datos del vehiculo:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
+        jLabel8.setBackground(new java.awt.Color(0, 102, 204));
+        jLabel8.setForeground(new java.awt.Color(0, 102, 204));
         jLabel8.setText("Buscar:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
 
+        btnGuardar.setBackground(new java.awt.Color(0, 102, 204));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 130, 40));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 130, 40));
 
+        btnEliminar.setBackground(new java.awt.Color(0, 102, 204));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 130, 40));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 130, 40));
 
-        Actualizar.setText("Actualizar");
-        Actualizar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setBackground(new java.awt.Color(0, 102, 204));
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 130, 40));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 130, 40));
 
-        Limpiar.setText("Limpiar");
-        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 130, 40));
-        jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 240, -1));
+        btnLimpiar.setBackground(new java.awt.Color(0, 102, 204));
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar");
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, 130, 40));
+        jPanel1.add(txtEstado_problema, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 240, -1));
 
+        jLabel9.setForeground(new java.awt.Color(0, 102, 204));
         jLabel9.setText("Dueño del vehiculo:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         jPanel1.add(txtDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 330, -1));
 
+        jLabel10.setForeground(new java.awt.Color(0, 102, 204));
         jLabel10.setText("telefono del dueño:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanel1.add(txtTelefono_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 330, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,9 +204,9 @@ public class frmMecanico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModelo_vehiculoActionPerformed
 
-    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ActualizarActionPerformed
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
@@ -219,10 +252,10 @@ public class frmMecanico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton Actualizar;
-    public javax.swing.JButton Limpiar;
+    public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -238,9 +271,10 @@ public class frmMecanico extends javax.swing.JFrame {
     public javax.swing.JTable jtbMenu;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtDueño;
-    public javax.swing.JTextField txtEstado;
+    public javax.swing.JTextField txtEstado_problema;
     public javax.swing.JTextField txtMarca_vehiculo;
     public javax.swing.JTextField txtModelo_vehiculo;
     public javax.swing.JTextField txtProblema_vehiculo;
+    public javax.swing.JTextField txtTelefono_cliente;
     // End of variables declaration//GEN-END:variables
 }

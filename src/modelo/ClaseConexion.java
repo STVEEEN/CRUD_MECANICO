@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ClaseConexion {
     
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-    private static final String USUARIO = "system";
+    private static final String USUARIO = "SYSTEM";
     private static final String CONTRASENA = "ITR2024";
 
     public static Connection getConexion() {

@@ -4,6 +4,8 @@
  */
 package modelo;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +16,7 @@ import java.util.UUID;
  *
  * @author Estudiante
  */
-public class Usuarios {
+public class Usuario {
     
     private String UUID_Usuario;
     private String nombre;
@@ -77,7 +79,7 @@ public class Usuarios {
         Connection conexion = ClaseConexion.getConexion();
         try {
             //Creamos el PreparedStatement que ejecutará la Query
-            PreparedStatement AddUsuario = conexion.prepareStatement("INSERT INTO tbUsuario(UUID_Usuario, nombre, apellido, Correo, contraseña, edad) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement AddUsuario = conexion.prepareStatement("INSERT INTO tbUsuario(UUID_Usuario, nombre, apellido, correo, contraseña, edad) VALUES (?, ?, ?, ?, ?, ?)");
             //Establecer valores de la consulta SQL
             AddUsuario.setString(1, UUID.randomUUID().toString());
             AddUsuario.setString(2, getNombre());
@@ -100,7 +102,6 @@ public class Usuarios {
         boolean resultado = false;
 
         try {
-            //Preparamos la consulta SQL para verificar el usuario
             String sql = "SELECT * FROM tbUsuario WHERE correo = ? AND contraseña = ?";
             PreparedStatement statement = conexion.prepareStatement(sql);
             statement.setString(1, getCorreo());
@@ -109,7 +110,6 @@ public class Usuarios {
             //Ejecutamos la consulta
             ResultSet resultSet = statement.executeQuery();
 
-            //Si hay un resultado, significa que el usuario existe y la contraseña es correcta
             if (resultSet.next()) {
                 resultado = true;
             }
@@ -120,6 +120,28 @@ public class Usuarios {
 
         return resultado;
     }
+       public String convertirSHA256(String password) {
+	MessageDigest md = null;
+	try {
+		md = MessageDigest.getInstance("SHA-256");
+	}
+	catch (NoSuchAlgorithmException e) {
+		System.out.println(e.toString());
+		return null;
+	}
+	byte[] hash = md.digest(password.getBytes());
+	StringBuffer sb = new StringBuffer();
+ 
+	for(byte b : hash) {
+		sb.append(String.format("%02x", b));
+	}
+ 
+	return sb.toString();
+}
+       
+       
+       
+       
     
     
 }
